@@ -1,10 +1,10 @@
-# An interface in Java is a blueprint of a class.
+* An interface in Java is a blueprint of a class.
 
-# It is a mechanism to achieve abstraction.
+* It is a mechanism to achieve abstraction.
 
-# interfaces can have abstract methods and variables. It cannot have a method body.
+* interfaces can have abstract methods and variables. It cannot have a method body.
 
-# Interface fields are public, static and final by default, and the methods are public and abstract.
+* Interface fields are public, static and final by default, and the methods are public and abstract.
 
 * Multiple inheritance is not supported in the case of class because of ambiguity. 
   However, it is supported in case of an interface because there is no ambiguity. 
