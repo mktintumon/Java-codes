@@ -1,5 +1,4 @@
-# The static variable gets memory only once 
-  in the class area at the time of class loading.
+# The static variable gets memory only once in the class area at the time of class loading.
 
 
 # Q)   Why is the Java main method static?
@@ -9,5 +8,5 @@
 
 
 # Restrictions of static
-1) The static method can not use non static data member or call non-static method directly.
-2) this and super cannot be used in static context.
+* The static method can not use non static data member or call non-static method directly.
+* this and super cannot be used in static context.
