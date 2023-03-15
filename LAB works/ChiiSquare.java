@@ -3,11 +3,13 @@ import java.security.SecureRandom;
 class Rollingdice{
     
     void rolling(){
+
         SecureRandom rand = new SecureRandom();
 
         // the sum of the values will vary from 2 to 12, 
-        // with 7 being the most frequent sum, and 2,12 the least frequent
-        int[] sumCounts = new int[11]; 
+        // with 7 being the most frequent sum, 
+        // and 2,12 the least frequent
+        int[] counts = new int[11]; 
         
         for (int i = 0; i < 1296; i++) { 
             int die1 = rand.nextInt(6) + 1; 
@@ -15,7 +17,7 @@ class Rollingdice{
             int sum = die1 + die2; 
 
             // incrementing sum each time
-            sumCounts[sum - 2]++; 
+            counts[sum - 2]++; 
         }
         
         // printing result obtained
@@ -23,24 +25,24 @@ class Rollingdice{
         for (int i = 0; i < 11; i++) {
             // getting actual sum index by ( i+2 )
             int sum = i + 2; 
-            int count = sumCounts[i];
+            int count = counts[i];
             System.out.println(sum + "\t" + count);
         }
         
         // Expected occurance
-        double[] expectedCounts = new double[11];
+        double[] expCounts = new double[11];
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
                 int sum = i + j + 2;
-                expectedCounts[sum - 2] += 1.0 / 36;
+                expCounts[sum - 2] += 1.0 / 36;
             }
         }
         
         // Chi-square formula
         double chiSqVal = 0;
         for (int i = 0; i < 11; i++) {
-            int observed = sumCounts[i];
-            double expected = expectedCounts[i] * 1296;
+            int observed = counts[i];
+            double expected = expCounts[i] * 1296;
             double difference = observed - expected;
             double calculation = (difference * difference) / expected;
             chiSqVal = chiSqVal + calculation;

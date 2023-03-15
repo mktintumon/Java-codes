@@ -101,7 +101,7 @@ public class StudentDetails {
         // tabular reresentation
         System.out.println("\nReg No.\t\tName\t\tAge");
         for (Student st : std) {
-            System.out.println(st.getRegNo() + "\t\t" + st.getName() + "\t\t" + st.getAge());
+            System.out.println(st.getRegNo() + "\t" + st.getName() + "\t\t" + st.getAge());
         }
     }
 }
