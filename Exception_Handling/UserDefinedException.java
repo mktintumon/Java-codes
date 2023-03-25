@@ -1,6 +1,6 @@
 package Exception_Handling;
 
-// user-defined exception should be part of excepiton class
+// user-defined exception should be part of exception class
 class EligibilityException extends Exception{
     EligibilityException(String msg){
         System.out.println(msg);
@@ -21,10 +21,13 @@ public class UserDefinedException {
 
     public static void main(String[] args) {
         try {
-            voting(15);
+            voting(17);
         } catch (Exception e) {
             // e.printStackTrace();
             System.out.println(e);
+        }
+        finally{
+            System.out.println("voting completed");
         }
     }
 }
