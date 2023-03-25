@@ -1,6 +1,6 @@
 package shapes;
 
-import geometric.GeometricObjects;
+import geometric.*;
 
 public class Triangle implements GeometricObjects{
     private double side1 , side2 , side3;
