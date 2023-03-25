@@ -3,7 +3,7 @@ package Exception_Handling;
 public class Throw {
     public static void main(String[] args) {
         int a = 10; 
-        int b = 5;
+        int b = 0;
         try {
             if (b == 0) 
                 throw new ArithmeticException("Do not perform division");
