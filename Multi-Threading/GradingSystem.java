@@ -45,13 +45,6 @@ class Display extends Thread{
     }
 
     public void run(){
-        try{
-            // first Grade class thread will finish 
-            gdThread.join();
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-
         System.out.println("Name: " + gdThread.name);
         System.out.println("Grade: " + gdThread.getGrade());
         System.out.println("GPA: " + gdThread.getGpa());
@@ -59,10 +52,10 @@ class Display extends Thread{
 }
 
 public class GradingSystem{
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Random rand = new Random();
 
-        for(int i=0 ; i<5 ; i++){
+        for(int i=1 ; i<=5 ; i++){
             int m1 = rand.nextInt(101);
             int m2 = rand.nextInt(101);
 
@@ -70,6 +63,7 @@ public class GradingSystem{
             Thread t1 = new Thread(g);
             Thread t2 = new Thread(new Display(g));
             t1.start();
+            t1.join();
             t2.start();
         }
     }

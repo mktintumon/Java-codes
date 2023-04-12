@@ -34,14 +34,16 @@ class Third extends Thread{
 }
 
 public class Syntax {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Thread A = new Thread(new First());
         A.setName("Thread first");
         A.start();
+        A.join();
 
         Thread B = new Thread(new Second());
         B.setName("Thread second");
         B.start();
+        B.join();
         
         Thread C = new Thread(new Third());
         C.setName("Thread third");
