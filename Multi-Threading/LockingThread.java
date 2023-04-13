@@ -6,6 +6,10 @@ import java.util.concurrent.locks.ReentrantLock;
 
 
 // Another method to acheive synchronisation
+// Difference between sync and lock -> 
+//        sync code must be in same block
+//        but lock and unlock can be in different blocks
+
 // If we lock ....we have to unlock also -> otherwise Starvation occurs
 
 class String_Thread extends Thread{
@@ -13,7 +17,7 @@ class String_Thread extends Thread{
     private String mssg;
 
     // static -> as it is shared among threads
-    private static Lock lock = new ReentrantLock();
+    private static Lock lock = new ReentrantLock(true);
 
     public String_Thread(ArrayList<Character> list ,String mssg){
         this.list = list;
