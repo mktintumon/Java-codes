@@ -1,4 +1,4 @@
-package Concepts;
+
 class Fibonacci extends Thread{
     public void run(){
         System.out.println("Thread "+Thread.currentThread().getName() +" started");
