@@ -1,5 +1,3 @@
-
-
 // MAX_PRIORITY = 10
 // MIN_PRIORITY = 0
 // NORM_PRIORITY = 5
