@@ -6,6 +6,7 @@ package Abstract;
 // method body (non-abstract method), constructor, and even main() method.
 
 abstract class Animal{
+    int id;
     abstract void naming();
 }
 
@@ -18,7 +19,9 @@ class Dog extends Animal{
 
 public class Example{
     public static void main(String[] args) {
-        Dog ex = new Dog();
+        Animal ex = new Dog();
+        ex.id = 10;
         ex.naming();
+        System.out.println(ex.id);
     }
 }
