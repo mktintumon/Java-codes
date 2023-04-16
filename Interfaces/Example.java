@@ -1,4 +1,3 @@
-package Interfaces;
 
 interface naming{
     // By default public , final and static

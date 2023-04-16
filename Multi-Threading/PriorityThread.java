@@ -5,10 +5,10 @@
 // The more the number of Threads -> more will be CPU utilization
 
 
-class Calculator extends Thread{
+class Operation extends Thread{
     long value;
 
-    public Calculator(long value){
+    public Operation(long value){
         this.value = value;
     }
 
@@ -28,17 +28,17 @@ class Calculator extends Thread{
 
 public class PriorityThread {
     public static void main(String[] args) {
-        Thread t1 = new Thread(new Calculator(300000000L));
+        Thread t1 = new Thread(new Operation(300000000L));
         t1.setName("High priority");
         t1.setPriority(Thread.MAX_PRIORITY);
         t1.start();
 
-        Thread t2 = new Thread(new Calculator(300000000L));
+        Thread t2 = new Thread(new Operation(300000000L));
         t2.setName("Low priority");
         t2.setPriority(Thread.MIN_PRIORITY);
         t2.start();
 
-        Thread t3 = new Thread(new Calculator(300000000L));
+        Thread t3 = new Thread(new Operation(300000000L));
         t3.setName("Norm priority");
         t3.setPriority(6); //Thread.NORM_PRIORITY
         t3.start();

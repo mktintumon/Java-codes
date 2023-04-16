@@ -1,4 +1,4 @@
-package Exception_Handling;
+
 
 
 class Throws{

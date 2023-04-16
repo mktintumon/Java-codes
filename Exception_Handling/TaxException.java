@@ -1,5 +1,4 @@
-package Exception_Handling;
-
+//package Exception_Handling;
 class TaxCalculationException extends Exception {
     TaxCalculationException(String msg) {
         //System.out.println(msg);
@@ -17,7 +16,7 @@ class Person {
         this.salary = salary;
         this.taxPaid = taxPaid;
     }
-
+    
     public void calculateTax() throws TaxCalculationException {
         // tax is 30%
         double tax = salary * 0.3;
@@ -27,6 +26,7 @@ class Person {
         }
     }
 }
+
 
 public class TaxException {
     public static void main(String[] args) {

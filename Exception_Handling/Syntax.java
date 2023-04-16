@@ -1,5 +1,3 @@
-package Exception_Handling;
-
 public class Syntax {
     public static void main(String[] args) {
         int a = 10, b=0;

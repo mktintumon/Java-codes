@@ -1,4 +1,3 @@
-package Exception_Handling;
 
 // user-defined exception should be part of exception class
 class EligibilityException extends Exception{

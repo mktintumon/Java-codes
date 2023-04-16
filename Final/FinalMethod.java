@@ -1,4 +1,3 @@
-package Final;
 
 // we can inherit final method class but cant override them
 

@@ -1,5 +1,3 @@
-package Interfaces;
-
 interface Drawable{  
     void draw();  
 } 

@@ -1,4 +1,3 @@
-package Interfaces;
 
 interface printable{
     void print();

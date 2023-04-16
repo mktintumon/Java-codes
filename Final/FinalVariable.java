@@ -1,4 +1,3 @@
-package Final;
 
 public class FinalVariable {
     final int speed = 100;
