@@ -2,7 +2,7 @@ interface Drawable{
     void draw();  
 } 
   
-class Rectangle implements Drawable{  
+class Rect implements Drawable{  
     public void draw(){
         System.out.println("drawing rectangle");
     }  
@@ -15,11 +15,19 @@ class Circle implements Drawable{
 }
 
 
-public class Student { 
+public class StudentDemo { 
     public static void main(String args[]){  
         Drawable d = new Circle();
         d.draw(); 
-        d = new Rectangle();
+        d = new Rect();
         d.draw();
+    }
+
+    public String getRegNo() {
+        return null;
+    }
+
+    public String getName() {
+        return null;
     }
 }
