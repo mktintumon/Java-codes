@@ -1,6 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
-public class Demo extends Frame implements ActionListener, ItemListener {
+public class Test extends Frame implements ActionListener, ItemListener {
 	Label label1, label2; 
 	Button b1, b2; 
 	Choice choice, choice1; 
@@ -12,7 +12,7 @@ public class Demo extends Frame implements ActionListener, ItemListener {
     String [] items = {""};
 	MenuBar mbar; 
     Menu file, view, submenu;  
-	Demo(String title) {
+	Test(String title) {
 		super(title);
 		setBackground(Color.white);
 		setForeground(Color.blue);
@@ -115,7 +115,7 @@ public class Demo extends Frame implements ActionListener, ItemListener {
 
 	}
 	public static void main(String[] args) {
-		new Demo("Label Demo");
+		new Test("Label Demo");
 	}
 	public void actionPerformed (ActionEvent ae) {
 		if(ae.getSource() == b1) {

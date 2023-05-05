@@ -2,11 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Converter extends JFrame {
+public class NumConverter extends JFrame {
     private JLabel decimalLabel, hexLabel, binaryLabel;
     private JTextField decimalField, hexField, binaryField;
 
-    public Converter() {
+    public NumConverter() {
         super("Number Converter");
 
         // Create components
@@ -68,6 +68,6 @@ public class Converter extends JFrame {
     }
 
     public static void main(String[] args) {
-        new Converter();
+        new NumConverter();
     }
 }
