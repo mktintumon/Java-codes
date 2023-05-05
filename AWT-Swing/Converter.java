@@ -68,6 +68,6 @@ public class Converter extends JFrame {
     }
 
     public static void main(String[] args) {
-        Converter c = new Converter();
+        new Converter();
     }
 }
