@@ -9,6 +9,7 @@
         "Packages",
         "Static",
         "AWT-Swing",
-        "IO_Stream"
+        "IO_Stream",
+        "JDBC"
     ]
 }

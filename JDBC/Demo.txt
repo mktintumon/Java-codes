@@ -1,0 +1,176 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+
+public class StaffManagementSystem extends JFrame implements ActionListener {
+
+    private JLabel idLabel, lastNameLabel, firstNameLabel, middleInitialLabel, addressLabel, cityLabel, stateLabel, telephoneLabel, emailLabel;
+    private JTextField idField, lastNameField, firstNameField, middleInitialField, addressField, cityField, stateField, telephoneField, emailField;
+    private JButton viewButton, insertButton, updateButton;
+
+    private Connection connection;
+
+    public StaffManagementSystem() {
+        super("Staff Management System");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        idLabel = new JLabel("Staff ID:");
+        lastNameLabel = new JLabel("Last Name:");
+        firstNameLabel = new JLabel("First Name:");
+        middleInitialLabel = new JLabel("Middle Initial:");
+        addressLabel = new JLabel("Address:");
+        cityLabel = new JLabel("City:");
+        stateLabel = new JLabel("State:");
+        telephoneLabel = new JLabel("Telephone:");
+        emailLabel = new JLabel("Email:");
+
+        idField = new JTextField(10);
+        lastNameField = new JTextField(20);
+        firstNameField = new JTextField(20);
+        middleInitialField = new JTextField(1);
+        addressField = new JTextField(50);
+        cityField = new JTextField(20);
+        stateField = new JTextField(2);
+        telephoneField = new JTextField(10);
+        emailField = new JTextField(50);
+
+        viewButton = new JButton("View");
+        insertButton = new JButton("Insert");
+        updateButton = new JButton("Update");
+
+        viewButton.addActionListener(this);
+        insertButton.addActionListener(this);
+        updateButton.addActionListener(this);
+
+        JPanel mainPanel = new JPanel(new GridLayout(10, 2));
+        mainPanel.add(idLabel);
+        mainPanel.add(idField);
+        mainPanel.add(lastNameLabel);
+        mainPanel.add(lastNameField);
+        mainPanel.add(firstNameLabel);
+        mainPanel.add(firstNameField);
+        mainPanel.add(middleInitialLabel);
+        mainPanel.add(middleInitialField);
+        mainPanel.add(addressLabel);
+        mainPanel.add(addressField);
+        mainPanel.add(cityLabel);
+        mainPanel.add(cityField);
+        mainPanel.add(stateLabel);
+        mainPanel.add(stateField);
+        mainPanel.add(telephoneLabel);
+        mainPanel.add(telephoneField);
+        mainPanel.add(emailLabel);
+        mainPanel.add(emailField);
+        mainPanel.add(viewButton);
+        mainPanel.add(insertButton);
+        mainPanel.add(updateButton);
+
+        setContentPane(mainPanel);
+        pack();
+        setVisible(true);
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost/staff_db", "username", "password");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == viewButton) {
+            int id = Integer.parseInt(idField.getText().trim());
+            try {
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM staff WHERE id = ?");
+                statement.setInt(1, id);
+                ResultSet rs = statement.executeQuery();
+                if (rs.next()) {
+                    lastNameField.setText(rs.getString("last_name"));
+                    firstNameField.setText(rs.getString("first_name"));
+                    middleInitialField.setText(rs.getString("middle_initial"));
+                    addressField.setText(rs.getString("address"));
+                    cityField.setText(rs.getString("city"));
+			        stateField.setText(rs.getString("state"));
+                    telephoneField.setText(rs.getString("telephone"));
+                    emailField.setText(rs.getString("email"));
+            } else {
+                JOptionPane.showMessageDialog(this, "No record found with ID: " + id);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    } else if (e.getSource() == insertButton) {
+        String lastName = lastNameField.getText().trim();
+        String firstName = firstNameField.getText().trim();
+        String middleInitial = middleInitialField.getText().trim();
+        String address = addressField.getText().trim();
+        String city = cityField.getText().trim();
+        String state = stateField.getText().trim();
+        String telephone = telephoneField.getText().trim();
+        String email = emailField.getText().trim();
+        try {
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO staff (last_name, first_name, middle_initial, address, city, state, telephone, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            statement.setString(1, lastName);
+            statement.setString(2, firstName);
+            statement.setString(3, middleInitial);
+            statement.setString(4, address);
+            statement.setString(5, city);
+            statement.setString(6, state);
+            statement.setString(7, telephone);
+            statement.setString(8, email);
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                JOptionPane.showMessageDialog(this, "Record inserted successfully.");
+                idField.setText("");
+                lastNameField.setText("");
+                firstNameField.setText("");
+                middleInitialField.setText("");
+                addressField.setText("");
+                cityField.setText("");
+                stateField.setText("");
+                telephoneField.setText("");
+                emailField.setText("");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    } else if (e.getSource() == updateButton) {
+        int id = Integer.parseInt(idField.getText().trim());
+        String lastName = lastNameField.getText().trim();
+        String firstName = firstNameField.getText().trim();
+        String middleInitial = middleInitialField.getText().trim();
+        String address = addressField.getText().trim();
+        String city = cityField.getText().trim();
+        String state = stateField.getText().trim();
+        String telephone = telephoneField.getText().trim();
+        String email = emailField.getText().trim();
+        try {
+            PreparedStatement statement = connection.prepareStatement("UPDATE staff SET last_name=?, first_name=?, middle_initial=?, address=?, city=?, state=?, telephone=?, email=? WHERE id=?");
+            statement.setString(1, lastName);
+            statement.setString(2, firstName);
+            statement.setString(3, middleInitial);
+            statement.setString(4, address);
+            statement.setString(5, city);
+            statement.setString(6, state);
+            statement.setString(7, telephone);
+            statement.setString(8, email);
+            statement.setInt(9, id);
+            int rowsUpdated = statement.executeUpdate();
+            if (rowsUpdated > 0) {
+                JOptionPane.showMessageDialog(this, "Record updated successfully.");
+            } else {
+                JOptionPane.showMessageDialog(this, "No record found with ID: " + id);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+}
+
+public static void main(String[] args) {
+    new StaffManagementSystem();
+}
+

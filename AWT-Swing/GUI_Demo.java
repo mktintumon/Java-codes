@@ -42,9 +42,6 @@ public class GUI_Demo {
         myJComboBox.setBounds(220,250,100,20);
         f.add(myJComboBox);
         
-        // celcius-farenheit conversion
-        
-        
         f.setSize(800,800);
         f.setLayout(null);
         f.setVisible(true);
