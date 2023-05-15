@@ -19,7 +19,7 @@ public class FileCreate {
             
             // Write 100 random integers to the file
             Random rand = new Random();
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < 10; i++) {
                 output.print(rand.nextInt(100) + " ");
             }
             
@@ -28,7 +28,7 @@ public class FileCreate {
             
             // Read the data back from the file and display in increasing order
             Scanner input = new Scanner(outputFile);
-            int[] data = new int[100];
+            int[] data = new int[10];
             int count = 0;
             
             while (input.hasNextInt()) {

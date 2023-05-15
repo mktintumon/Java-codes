@@ -17,17 +17,17 @@ public class ScoreCount {
         
         try {
             File inputFile = new File(filename);
-            Scanner fileScanner = new Scanner(inputFile);
+            Scanner fs = new Scanner(inputFile);
             int total = 0;
             int count = 0;
             
-            while (fileScanner.hasNextInt()) {
-                int score = fileScanner.nextInt();
+            while (fs.hasNextInt()) {
+                int score = fs.nextInt();
                 total += score;
                 count++;
             }
             
-            fileScanner.close();
+            fs.close();
             
             if (count > 0) {
                 double average = (double) total / count;

@@ -19,19 +19,19 @@ public class ReplaceWord {
         
         try {
             File inputFile = new File(filename);
-            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-            StringBuilder stringBuilder = new StringBuilder();
+            BufferedReader br = new BufferedReader(new FileReader(inputFile));
+            StringBuilder sb = new StringBuilder();
             String line;
             
-            while ((line = reader.readLine()) != null) {
+            while ((line = br.readLine()) != null) {
                 line = line.replaceAll(targetString, "");
-                stringBuilder.append(line).append("\n");
+                sb.append(line).append("\n");
             }
             
-            reader.close();
+            br.close();
             
             FileWriter writer = new FileWriter(inputFile);
-            writer.write(stringBuilder.toString());
+            writer.write(sb.toString());
             writer.close();
             
             System.out.println("Removed all occurrences of \"" + targetString + "\" from " + filename);

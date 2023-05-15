@@ -24,22 +24,22 @@ public class CreateFacultyStats {
             
             Random rand = new Random();
             for (int i = 0; i < 100; i++) {
-                String firstName = firstNames[rand.nextInt(firstNames.length)];
-                String lastName = lastNames[rand.nextInt(lastNames.length)];
+                String fn = firstNames[rand.nextInt(firstNames.length)];
+                String ln = lastNames[rand.nextInt(lastNames.length)];
                 String rank = ranks[rand.nextInt(ranks.length)];
                 double salary = 0.0;
                 switch (rank) {
                     case "assistant":
-                        salary = 50000 + 30000 * rand.nextDouble();
+                        salary = rand.nextDouble(50000,80001);
                         break;
                     case "associate":
-                        salary = 60000 + 50000 * rand.nextDouble();
+                        salary = rand.nextDouble(60000,110001);
                         break;
                     case "full":
-                        salary = 75000 + 55000 * rand.nextDouble();
+                        salary = rand.nextDouble(75000,130001);
                         break;
                 }
-                output.printf("%s %s %s %.2f\n", firstName, lastName, rank, salary);
+                output.printf("%s %s %s %.2f\n", fn, ln, rank, salary);
             }
             
             output.close();
