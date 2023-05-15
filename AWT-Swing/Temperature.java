@@ -10,7 +10,7 @@ public class Temperature extends JFrame implements ActionListener {
     public Temperature() {
         super("Fahrenheit to Celsius Converter");
 
-        JPanel inputPanel = new JPanel(new FlowLayout());
+        JPanel inputPanel = new JPanel(new FlowLayout(100));
         inputPanel.add(new JLabel("Fahrenheit:"));
         fahrenheitField = new JTextField(10);
         inputPanel.add(fahrenheitField);

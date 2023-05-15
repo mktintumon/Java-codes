@@ -117,6 +117,8 @@ public class Test extends Frame implements ActionListener, ItemListener {
 	public static void main(String[] args) {
 		new Test("Label Demo");
 	}
+
+	
 	public void actionPerformed (ActionEvent ae) {
 		if(ae.getSource() == b1) {
 			label1.setText("You clicked b1");
