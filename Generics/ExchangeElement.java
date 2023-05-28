@@ -1,7 +1,7 @@
 import java.util.*;
 
-class InvalidRangeException extends Exception{
-    InvalidRangeException(String mssg){
+class InvalidIndexException extends Exception{
+    InvalidIndexException(String mssg){
         super(mssg);
     }
 }
@@ -9,7 +9,7 @@ class InvalidRangeException extends Exception{
 public class ExchangeElement {
     public static <T> void exchange(T[] arr, int idx1, int idx2) throws Exception {
         if (idx1 < 0 || idx1 >= arr.length || idx2 < 0 || idx2 >= arr.length) {
-            throw new InvalidRangeException("Invalid indices");
+            throw new InvalidIndexException("Invalid indices");
         }
 
         T temp = arr[idx1];
