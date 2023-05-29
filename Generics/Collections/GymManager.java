@@ -30,7 +30,7 @@ class Gym{
     }
 }
 
-class distanceComparator implements Comparator<Gym>{
+class DistanceComparator implements Comparator<Gym>{
     public int compare(Gym g1 , Gym g2){
         if (g1.getDistance() == g2.getDistance())
             return 0;
@@ -60,7 +60,7 @@ public class GymManager {
         }
 
         // Sort the LinkedList in ascending order of distance
-        Collections.sort(gyms, new distanceComparator());
+        Collections.sort(gyms, new DistanceComparator());
 
         System.out.println("\nGyms Sorted by Distance:");
         for (Gym g : gyms) {
