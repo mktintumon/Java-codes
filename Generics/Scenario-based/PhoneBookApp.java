@@ -1,3 +1,12 @@
+/*
+ You need to develop and test a Java program for a phone book application,
+ where users can store their contacts using different fields, such as name, 
+ phone number, and email address. Implement a HashMap to store the contacts, 
+ with name as the key and a Contact object as the value, which comprises the 
+ contact information. Implement methods for adding, removing, and searching 
+ for contacts.
+ */
+
 import java.util.*;
 
 class Contact {
@@ -102,6 +111,7 @@ public class PhoneBookApp {
                 case 4:
                     System.out.println("Exiting...");
                     System.exit(0);
+                    sc.close();
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");

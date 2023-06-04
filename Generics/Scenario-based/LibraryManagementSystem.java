@@ -1,3 +1,12 @@
+/*
+ You are considering creating a library management system, where librarians 
+ can keep track of the books they have, the patrons borrowing the books, and 
+ the borrow/return dates. Develop and test a Java program that uses HashMap, 
+ with Book as the key and Patron as the value, and implements methods where 
+ a librarian can add, remove, and update books and patrons to the system.
+ */
+
+
 import java.util.*;
 
 class Book {

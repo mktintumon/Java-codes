@@ -1,3 +1,12 @@
+/*
+ You are developing an E-commerce website that allows users to browse 
+ through products and add them to a cart before making a purchase. 
+ Develop and test a Java program that uses ArrayList to store the 
+ products and LinkedList to store the user's cart incrementally. 
+ Implement methods that add products to the list of available products 
+ and add them to the cart when the user requests it.
+ */
+
 import java.util.*;
 
 class Product {

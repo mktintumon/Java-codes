@@ -1,3 +1,10 @@
+/*
+ You are implementing a network message system, which needs a priority queue 
+ for sending messages based on priority levels. Develop and test a Java program 
+ that implements PriorityQueue to store messages and sorts them based on priority, 
+ and a method that sends messages in the order of priority. 
+ */
+
 import java.util.PriorityQueue;
 
 class Message implements Comparable<Message> {
